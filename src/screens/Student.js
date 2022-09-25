@@ -1,5 +1,6 @@
 class Student{
 static studentData = {};
+
 static setValue(key,value)
 {
     this.studentData[key]= value;
