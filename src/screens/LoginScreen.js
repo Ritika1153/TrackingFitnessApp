@@ -19,6 +19,7 @@ import { useTheme } from "react-native-paper";
 
 import { AuthContext } from "../components/context";
 import HelpersApi from "./HelpersApi";
+import Student from "./Student";
 const Users = [
 	{
 		id: 1,
@@ -258,7 +259,21 @@ const LoginScreen = ({ navigation }) => {
 						var res = JSON.stringify(response);
 						var responseObj = JSON.parse(res);
 						if(responseObj.status ==true || responseObj.status == "true" )
-						navigation.navigate("MainScreenStudent")
+						{
+
+							 var studentResponse = responseObj.student;
+							 console.log("student" , studentResponse)
+							 Student.clearData();
+							 var objStudent = JSON.parse(studentResponse)
+							 console.log("student obj",objStudent)
+							 console.log("username: ",objStudent.username)
+							  Student.studentData = objStudent;
+							
+
+							navigation.navigate("MainScreenStudent")
+							ToastAndroid.show('Welcome '+objStudent.username,ToastAndroid.LONG);
+						}
+						
 						else
 						ToastAndroid.show('User Doesnt Exist',ToastAndroid.LONG);
 

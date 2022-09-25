@@ -109,6 +109,8 @@ const GenderScreen = (props) => {
 						var student = Student.getjsonString();
 						const response = await HelpersApi.PostRequest('student/register',student);
 						console.log(response)
+						ToastAndroid.show("Registration Succesful",ToastAndroid.LONG)
+						props.navigation.navigate("LoginScreen")
 								
 					}
 				}

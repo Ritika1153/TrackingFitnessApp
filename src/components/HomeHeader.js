@@ -7,6 +7,7 @@ import { COLORS, FONTS, SIZES, assets } from "../../constants";
 import { Avatar } from "react-native-paper";
 import avatar from "../../assets/avatar.png";
 import logo from "../../assets/icons/logo1.png";
+import Student from "../screens/Student";
 const HomeHeader = ({ onSearch }) => {
 	// console.log(onSearch);
 	return (
@@ -53,7 +54,7 @@ const HomeHeader = ({ onSearch }) => {
 						fontSize: SIZES.small,
 						color: "#fff",
 					}}>
-					Hello Anikat 👋
+					Hello {Student.getValue("username")}  👋
 				</Text>
 
 				<Text

@@ -25,9 +25,17 @@ exports.getloginstudent = (req,res) => {
  dbConn.query('SELECT * FROM STUDENT WHERE username=? AND password=?', [obj.username,obj.password],function(err, rows){
 
     if(rows.length == 0)
-    res.json({status : false , message : 'No student exist'});
+    {
+        res.json({status : false , message : 'No student exist'});
+    
+    }
     else
-    res.json({status : true , message : 'ok aa'});
+    {
+        var studentData = JSON.stringify(rows[0])
+    
+        res.json({status : true , student : studentData});
+    }
+    
  })
 }
 

@@ -6,7 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import avatar from "../../assets/avatar.png";
 import { Avatar, Title, Caption } from "react-native-paper";
 import InfoHeadingComponent from "../components/InfoHeadingComponent";
-
+import Student from "./Student";
 import CardComponent from "../components/CardComponent";
 
 const CandidateProfile = ({ navigation, route }) => {
@@ -26,7 +26,7 @@ const CandidateProfile = ({ navigation, route }) => {
 									color: "#fff",
 								},
 							]}>
-							Anikat
+							{Student.getValue("username")}
 						</Title>
 						{/* <Caption style={styles.caption}>@anikat_kumar</Caption> */}
 					</View>
@@ -39,41 +39,41 @@ const CandidateProfile = ({ navigation, route }) => {
 						headingLine='Fitness Freak'
 					/>
 
-					<InfoHeadingComponent
-						iconName='call-outline'
-						headingLine='03036573214'
-					/>
-					<InfoHeadingComponent
-						iconName='mail-outline'
-						headingLine='Kumaranikat263@gmail.com'
-					/>
+					
 					<View style={{ flexDirection: "row" }}>
 						<InfoHeadingComponent
 							iconName='fitness-outline'
 							headingLine='BMI :'
 						/>
-						<Caption style={styles.caption1}>25</Caption>
+						<Caption style={styles.caption1}>{Student.getValue("bmi")}</Caption>
 					</View>
 					<View style={{ flexDirection: "row" }}>
 						<InfoHeadingComponent
 							iconName='body-outline'
 							headingLine='Weight :'
 						/>
-						<Caption style={styles.caption1}>{98} Kgs</Caption>
+						<Caption style={styles.caption1}>{Student.getValue("weight")} Kgs</Caption>
 					</View>
 					<View style={{ flexDirection: "row" }}>
 						<InfoHeadingComponent
-							iconName='barbell-outline'
-							headingLine='Weight Status:'
+							iconName='body-outline'
+							headingLine='Height :'
 						/>
-						<Caption style={styles.caption1}>OverWeighted</Caption>
+						<Caption style={styles.caption1}>{Student.getValue("height")} Kgs</Caption>
+					</View>
+					<View style={{ flexDirection: "row" }}>
+						<InfoHeadingComponent
+							iconName='body-outline'
+							headingLine='Age :'
+						/>
+						<Caption style={styles.caption1}>{Student.getValue("age")} Kgs</Caption>
 					</View>
 					<View style={{ flexDirection: "row" }}>
 						<InfoHeadingComponent
 							iconName='flame-outline'
-							headingLine='Calories Count :'
+							headingLine='Student Id :'
 						/>
-						<Caption style={styles.caption1}>5679</Caption>
+						<Caption style={styles.caption1}>{Student.getValue("studentid")}</Caption>
 					</View>
 					<View style={{ flexDirection: "row" }}>
 						<InfoHeadingComponent
@@ -87,7 +87,7 @@ const CandidateProfile = ({ navigation, route }) => {
 							iconName='transgender-outline'
 							headingLine='Gender :'
 						/>
-						<Caption style={styles.caption1}>Male</Caption>
+						<Caption style={styles.caption1}>{Student.getValue("gender")}</Caption>
 					</View>
 					<View style={{ flexDirection: "row" }}>
 						<InfoHeadingComponent
@@ -101,7 +101,7 @@ const CandidateProfile = ({ navigation, route }) => {
 							iconName='body-outline'
 							headingLine='Body Fat :'
 						/>
-						<Caption style={styles.caption1}>8.9%</Caption>
+						<Caption style={styles.caption1}>{Student.getValue("bodyfat")}</Caption>
 					</View>
 					{/* <CardComponent /> */}
 					<View style={{ width: "100%", alignContent: "center" }}>

@@ -6,7 +6,7 @@ import { View, Text, Image, TextInput } from "react-native";
 import { COLORS, FONTS, SIZES, assets } from "../../constants";
 
 import avatar from "../../assets/avatar.png";
-
+import Student from "../screens/Student";
 const BlogCard = () => {
 	// console.log(onSearch);
 	return (
@@ -53,7 +53,7 @@ const BlogCard = () => {
 						fontSize: SIZES.small,
 						color: "#fff",
 					}}>
-					Hello Anikat 👋
+					Hello {Student.getValue("username")} 👋
 				</Text>
 
 				<Text
