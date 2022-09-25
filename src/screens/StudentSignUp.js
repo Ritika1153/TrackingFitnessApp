@@ -181,7 +181,6 @@ const StudentSignUp = (props) => {
 								},
 							]}
 							onPress={() => {
-								Student.clearData()
 								Student.setValue("username",data.username)
 								Student.setValue("password",data.password)
 								console.log("valueUSername",Student.getValue("username"))

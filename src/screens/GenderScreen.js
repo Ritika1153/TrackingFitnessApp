@@ -21,6 +21,8 @@ import HeadingText from "../components/HeadingText";
 import Feather from "react-native-vector-icons/Feather";
 import GenderCard from "../components/GenderCard";
 import Student from "./Student";
+import { ToastAndroid } from "react-native";
+import HelpersApi from "./HelpersApi";
 
 const GenderScreen = (props) => {
 	const [checked, setChecked] = useState(0);
@@ -104,22 +106,12 @@ const GenderScreen = (props) => {
 				<TouchableOpacity
 					onPress={async () =>{
 						Student.setValue("gender",gender[checked])
-						var student = Student.getjsonString()
-					    console.log(student)
-						const response = await fetch('http://192.168.0.111:3000/student/register', {
-							method: 'POST',
-							body: student,
-							headers: {
-								'Content-Type': 'application/json',
-								Accept: 'application/json',
-							  }
-						  });
-					
-						  if (!response.ok) {
-							throw new Error(`Error! status: ${response.status}`);
-						//props.navigation.navigate("LoginScreen")
+						var student = Student.getjsonString();
+						const response = await HelpersApi.PostRequest('http://192.168.22.1:3000/student/register',student);
+						console.log(response)
+								
 					}
-				}}
+				}
 				
 					style={[
 						styles.signIn,

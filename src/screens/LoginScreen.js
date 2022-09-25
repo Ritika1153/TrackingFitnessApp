@@ -10,6 +10,7 @@ import {
 	StyleSheet,
 	StatusBar,
 	Alert,
+	ToastAndroid,
 } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
@@ -17,7 +18,7 @@ import Feather from "react-native-vector-icons/Feather";
 import { useTheme } from "react-native-paper";
 
 import { AuthContext } from "../components/context";
-
+import HelpersApi from "./HelpersApi";
 const Users = [
 	{
 		id: 1,
@@ -111,10 +112,7 @@ const LoginScreen = ({ navigation }) => {
 	};
 
 	const loginHandle = (userName, password) => {
-		const foundUser = Users.filter((item) => {
-			return userName == item.username && password == item.password;
-		});
-
+		
 		if (data.username.length == 0 || data.password.length == 0) {
 			Alert.alert(
 				"Wrong Input!",
@@ -124,13 +122,8 @@ const LoginScreen = ({ navigation }) => {
 			return;
 		}
 
-		if (foundUser.length == 0) {
-			Alert.alert("Invalid User!", "Username or password is incorrect.", [
-				{ text: "Okay" },
-			]);
-			return;
-		}
-		signIn(foundUser);
+		
+		//signIn(foundUser);
 	};
 
 	return (
@@ -258,8 +251,24 @@ const LoginScreen = ({ navigation }) => {
 						</View>
 					</TouchableOpacity> */}
 					<TouchableOpacity
-						onPress={() => {
-							loginHandle(data.username, data.password);
+						onPress={async () => {
+						var response =await HelpersApi.GetRequest('http://192.168.22.1:3000/student/login?',
+						new URLSearchParams({ username: data.username,password : data.password }).toString()
+						)
+						var res = JSON.stringify(response);
+						var responseObj = JSON.parse(res);
+						if(responseObj.status ==true || responseObj.status == "true" )
+						navigation.navigate("HomeScreen")
+						else
+						ToastAndroid.show('User Doesnt Exist',ToastAndroid.LONG);
+
+
+
+  console.log(response);
+							
+							
+							
+						//	loginHandle(data.username, data.password);
 						}}
 						style={[
 							styles.signIn,
