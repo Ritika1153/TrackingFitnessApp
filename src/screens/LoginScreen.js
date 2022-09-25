@@ -258,7 +258,7 @@ const LoginScreen = ({ navigation }) => {
 						var res = JSON.stringify(response);
 						var responseObj = JSON.parse(res);
 						if(responseObj.status ==true || responseObj.status == "true" )
-						navigation.navigate("HomeScreen")
+						navigation.navigate("MainScreenStudent")
 						else
 						ToastAndroid.show('User Doesnt Exist',ToastAndroid.LONG);
 

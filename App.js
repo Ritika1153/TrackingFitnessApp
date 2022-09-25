@@ -43,9 +43,8 @@ import TaskSuggestion from "./src/screens/TaskSuggestion";
 import TrainerNewGym from "./src/screens/TrainerNewGym";
 import InviteSomeone from "./src/screens/IniviteSomeone";
 import PaymentSuccessfull from "./src/screens/PaymentSuccessfull";
-import RegisterGymForm from "./src/screens/RegisterGymForm";
 import DietDropDown from "./src/components/DietDropDown";
-import Settings from "./src/screens/Settings";
+import RegisterGymForm from "./src/screens/RegisterGymForm";
 
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import StudentList from "./src/screens/StudentsList";
@@ -54,75 +53,7 @@ const Tab = createMaterialBottomTabNavigator();
 
 const RootStack = createStackNavigator();
 
-const RootStackScreenStudent = ({ navigation }) => {
-	return (
-		<Tab.Navigator
-			initialRouteName='HomeScreen'
-			activeColor='#fff'
-			inactiveColor='#3e2465'
-			barStyle={{ backgroundColor: "#9b10c2" }}>
-			<Tab.Screen
-				name='HomeScreen'
-				component={HomeScreen}
-				options={{
-					headerShown: false,
-					tabBarLabel: "Home",
-					tabBarIcon: ({ color }) => (
-						<Icon name='home-outline' color={color} size={25} />
-					),
-				}}
-			/>
-			<Tab.Screen
-				name='StudentProfileScreen'
-				component={StudentProfileScreen}
-				options={{
-					tabBarLabel: "Profile",
 
-					tabBarIcon: ({ color }) => (
-						<Icon name='person-outline' color={color} size={25} />
-					),
-				}}
-			/>
-			<Tab.Screen
-				name='Announcements'
-				component={StudentAnnouncements}
-				options={{
-					headerShown: true,
-					// headerStyle: {
-					// 	backgroundColor: "black",
-					// },
-					// headerTintColor: "black",
-					tabBarLabel: "Announcements",
-					tabBarIcon: ({ color }) => (
-						<Icon name='notifications-outline' color={color} size={25} />
-					),
-				}}
-			/>
-			<Tab.Screen
-				name='Home'
-				component={Home}
-				options={{
-					headerShown: false,
-					tabBarLabel: "Gyms",
-					tabBarIcon: ({ color }) => (
-						<Icon name='barbell-outline' color={color} size={25} />
-					),
-				}}
-			/>
-			<Tab.Screen
-				name='settings'
-				component={Settings}
-				options={{
-					headerShown: false,
-					tabBarLabel: "Settings",
-					tabBarIcon: ({ color }) => (
-						<Icon name='cog-outline' color={color} size={25} />
-					),
-				}}
-			/>
-		</Tab.Navigator>
-	);
-};
 
 const RootStackScreenSkip = ({ navigation }) => {
 	return (
@@ -424,7 +355,7 @@ export default function App() {
 				<RootStack.Screen
 					options={{ headerShown: false }}
 					name='MainScreenStudent'
-					component={RootStackScreenStudent}
+					component={MainScreenStudent}
 				/>
 				<RootStack.Screen
 					options={{ headerShown: false }}
