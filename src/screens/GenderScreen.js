@@ -107,7 +107,7 @@ const GenderScreen = (props) => {
 					onPress={async () =>{
 						Student.setValue("gender",gender[checked])
 						var student = Student.getjsonString();
-						const response = await HelpersApi.PostRequest('http://192.168.22.1:3000/student/register',student);
+						const response = await HelpersApi.PostRequest('student/register',student);
 						console.log(response)
 								
 					}

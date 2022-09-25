@@ -252,7 +252,7 @@ const LoginScreen = ({ navigation }) => {
 					</TouchableOpacity> */}
 					<TouchableOpacity
 						onPress={async () => {
-						var response =await HelpersApi.GetRequest('http://192.168.22.1:3000/student/login?',
+						var response =await HelpersApi.GetRequest('student/login?',
 						new URLSearchParams({ username: data.username,password : data.password }).toString()
 						)
 						var res = JSON.stringify(response);

@@ -1,9 +1,9 @@
 class HelpersApi
 {
-
+static ip = "http://192.168.0.111:3000/";
 static async PostRequest(url,body)
 {
-    return await fetch(url, {
+    return await fetch(this.ip+url, {
 							method: 'POST',
 							body: body,
 							headers: {
@@ -16,7 +16,7 @@ static async PostRequest(url,body)
     }
 static async GetRequest(url,params)
 {
-    var finalUrl = url + params;
+    var finalUrl =this.ip + url + params;
     return await fetch(finalUrl)
     .then(response => response.json());
 
