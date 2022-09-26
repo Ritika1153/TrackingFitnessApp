@@ -1,6 +1,6 @@
 class HelpersApi
 {
-static ip = "http://192.168.0.111:3000/";
+static ip = "http://192.168.1.108:3000/";
 static async PostRequest(url,body)
 {
     return await fetch(this.ip+url, {
